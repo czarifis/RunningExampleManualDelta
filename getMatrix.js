@@ -1,5 +1,5 @@
 /**
- * Created by xhrdx on 10/30/15.
+ * Created by Costas Zarifis on 10/30/15.
  */
 
 
@@ -60,7 +60,18 @@ var data_from_server = [
     }
 ];
 
+// The index that will be used by the delta function
 var index = {};
+
+/**
+ * The group by function
+ * @param input                     - The "flat" input
+ * @param input_key                 - The element (of the input data) that will be used as the primary key.
+ *                                    The target of the incoming diff will be using this to identify the correct tuple
+ * @param group_key                 - The attribute that will be used for the group by
+ * @param key_of_second_dimension   - The 2nd group by attribute.
+ * @returns {Array}                 - The 2-dimensional array.
+ */
 function groupBy(input, input_key, group_key, key_of_second_dimension) {
     var hash = {};
     for (var i=0 ; i < input.length; i++) {
